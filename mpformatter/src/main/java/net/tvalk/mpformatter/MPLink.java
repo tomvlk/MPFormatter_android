@@ -22,4 +22,12 @@ public class MPLink extends MPStyles {
             spannable.setSpan(new URLSpan(this.url), super.start, super.end, Spanned.SPAN_COMPOSING);
         }
     }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String newUrl) {
+        this.url = newUrl;
+    }
 }

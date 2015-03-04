@@ -136,8 +136,6 @@ public class MPFormatter {
                     case 'm':
                     case 'M':
                         // Parse link
-                        this.stopAllLinks(styledString.length());
-
                         // Check if url can be after the dollar and type char
                         if(input.length() > i + 2){
                             char after = input.charAt(i+2);
@@ -158,7 +156,18 @@ public class MPFormatter {
                                     }
                                 }
                             }else{
-                                // Link is visible, ignore it
+                                // Link is visible, maybe a closer
+                                if(this.links.size() > 0){
+                                    MPLink last = this.links.get(this.links.size()-1);
+                                    if(last.getEnd() == 0){
+                                        // Old link, that needs closing
+                                        this.stopAllLinks(styledString.length());
+                                    }else{
+                                        // It's a new link, add it
+                                        this.links.add(new MPLink(null, styledString.length()));
+                                    }
+                                }
+
                             }
                         }else{
                             // Last one link stopper, so ignore
@@ -270,6 +279,12 @@ public class MPFormatter {
         for(MPLink link: links){
             if(link.getEnd() == 0){
                 link.setEnd(stopIndex);
+
+                // If its a visible link, then insert url now
+                if(link.getUrl() == null) {
+                    String url = this.styledString.subSequence(link.getStart(), link.getEnd()).toString();
+                    link.setUrl(url);
+                }
             }
         }
     }
