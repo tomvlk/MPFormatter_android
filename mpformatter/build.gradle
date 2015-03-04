@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'android-library'
 
 version = "1.0"
-group = "net.tvalk"
+group = "net.tvalk.mpformatter"
 
 android {
     compileSdkVersion 21
@@ -21,4 +21,3 @@ android {
         }
     }
 }
-
