@@ -2,6 +2,7 @@ package net.tvalk.mpformatter;
 
 import android.text.Editable;
 import android.text.Spannable;
+import android.text.util.Linkify;
 
 import java.util.ArrayList;
 
@@ -94,6 +95,8 @@ public class MPFormatter {
             }
 
             if(this.parseLinks) {
+                Linkify.addLinks(styledSpannable, Linkify.ALL);
+
                 for (MPLink link : links) {
                     if (link.getEnd() > 0) {
                         link.apply(styledSpannable);
