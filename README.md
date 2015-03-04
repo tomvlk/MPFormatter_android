@@ -7,10 +7,17 @@ It will output a Spanned object that can be used in TextViews and more Android c
 To get the Spanned from a styled nickname for example, use:
 
     String nickname = "$F80$i$o$SToffe$z$06FSmurf $z$n$l[http://goo.gl/y4M9VK][App]$l";
-    Spanned styledNickname = new MPFormatter().parseString(nickname);
+    Spanned styledNickname = new MPFormatter(nickname).parse().getSpanned();
 
 This will result in:
 ![Example result from above code](https://raw.githubusercontent.com/tomvlk/MPFormatter_swift/master/example.png "Example result")
+
+You can also strip the colors, links or styles with the functions stripColors(), stripLinks() and stripStyles() on the parse() return to strip it. You can also get a string without any styles, colors or links with getString() on the parse() return
+
+For example, to strip the links in this nickname:
+
+    String nickname = "$F80$i$o$SToffe$z$06FSmurf $z$n$l[http://goo.gl/y4M9VK][App]$l";
+    Spanned styledNickname = new MPFormatter(nickname).parse().stripLinks().getSpanned();
 
 
 ## Licence ##
