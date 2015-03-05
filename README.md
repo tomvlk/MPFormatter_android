@@ -2,6 +2,15 @@
 A ManiaPlanet Color Style parser and formatter for Android. Currently basicly only working with all the styles. But in future it can also strip styles, links and colors and have more options.
 It will output a Spanned object that can be used in TextViews and more Android controls that support Spanned Strings. 
 
+## Installation ##
+You can use gradle to compile it, it's in the jCentral repository.
+
+    dependencies {
+        compile 'net.tvalk.mpformatter:mpformatter:1.0'
+    }
+
+If you want to stay updated, replace the '1.0' with '1.+'. But can break things when there is a new version.
+
 ## Usage ##
 
 To get the Spanned from a styled nickname for example, use:
