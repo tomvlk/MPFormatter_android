@@ -19,7 +19,7 @@ public class MainActivity extends Activity {
 
         TextView label = (TextView)findViewById(R.id.testLabel);
 
-        String nickname = "$F80$i$S$oToffe$z$06FSmurf $z$n$l[http://goo.gl/y4M9VK][App]";
+        String nickname = "$F80$i$S$oToffe$z$06FSmu$h[testing]rf htest$h $z$n$l[http://goo.gl/y4M9VK][App]";
 
         Spanned nn = new MPFormatter(nickname).parse().getSpannable();
 
