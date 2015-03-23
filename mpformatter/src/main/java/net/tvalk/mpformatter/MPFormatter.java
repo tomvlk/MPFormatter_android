@@ -95,7 +95,7 @@ public class MPFormatter {
             }
 
             if(this.parseLinks) {
-                Linkify.addLinks(styledSpannable, Linkify.ALL);
+                Linkify.addLinks(styledSpannable, Linkify.EMAIL_ADDRESSES | Linkify.WEB_URLS);
 
                 for (MPLink link : links) {
                     if (link.getEnd() > 0) {
