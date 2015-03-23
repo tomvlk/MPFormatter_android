@@ -138,6 +138,8 @@ public class MPFormatter {
                     case 'L':
                     case 'm':
                     case 'M':
+                    case 'h':
+                    case 'H':
                         // Parse link
                         // Check if url can be after the dollar and type char
                         if(input.length() > i + 2){
