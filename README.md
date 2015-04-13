@@ -8,10 +8,10 @@ It will output a Spanned object that can be used in TextViews and more Android c
 You can use gradle to compile it, it's in the jCentral repository.
 
     dependencies {
-        compile 'net.tvalk.mpformatter:mpformatter:1.0'
+        compile 'net.tvalk.mpformatter:mpformatter:1.2'
     }
 
-If you want to stay updated, replace the '1.0' with '1.+'. But can break things when there is a new version.
+If you want to stay updated, replace the '1.2' with '1.+'. But can break things when there is a new version.
 
 ## Usage ##
 
