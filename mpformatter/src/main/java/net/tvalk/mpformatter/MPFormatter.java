@@ -150,13 +150,13 @@ public class MPFormatter {
                                 // Get start and end of link
                                 int urlStop = input.indexOf("]", i + 2);
                                 if(urlStop > -1 && input.length() > i + 3) {
-                                    String url = input.substring(i + 3, urlStop - 1);
+                                    String url = input.substring(i + 3, urlStop);
 
                                     MPLink link = new MPLink(url, styledString.length());
                                     this.links.add(link);
 
                                     // Ignore all the url parts
-                                    for(int s = 0; s <= url.length() + 2; s++){
+                                    for(int s = 0; s <= url.length() + 1; s++){
                                         ignore.add(i + 2 + s);
                                     }
                                 }
