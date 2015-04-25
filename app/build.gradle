@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 22
+    buildToolsVersion "22"
 
     lintOptions {
         abortOnError false
@@ -11,9 +11,9 @@ android {
     defaultConfig {
         applicationId "net.tvalk.mpformattersample"
         minSdkVersion 1
-        targetSdkVersion 21
-        versionCode 1
-        versionName "1.0"
+        targetSdkVersion 22
+        versionCode 8
+        versionName "1.3.3"
     }
     buildTypes {
         release {

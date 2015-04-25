@@ -13,7 +13,7 @@ public class MPLink extends MPStyles {
 
     public MPLink(String link, int startIndex) {
         super(startIndex);
-        this.url = link;
+        this.setUrl(link);
     }
 
     @Override
@@ -28,6 +28,9 @@ public class MPLink extends MPStyles {
     }
 
     public void setUrl(String newUrl) {
+        if(!newUrl.startsWith("http://") && !newUrl.startsWith("https://")) {
+            newUrl = "http://" + newUrl;
+        }
         this.url = newUrl;
     }
 }

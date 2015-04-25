@@ -5,13 +5,19 @@ A ManiaPlanet Color Style parser and formatter for Android. Currently basicly on
 It will output a Spanned object that can be used in TextViews and more Android controls that support Spanned Strings. 
 
 ## Installation ##
-You can use gradle to compile it, it's in the jCentral repository.
+You can use gradle to compile it, it's in the jCentral repository and in the Maven Central.
 
     dependencies {
-        compile 'net.tvalk.mpformatter:mpformatter:1.2'
+        compile 'net.tvalk.mpformatter:mpformatter:1.3.3'
     }
 
-If you want to stay updated, replace the '1.2' with '1.+'. But can break things when there is a new version.
+If you want to stay updated, replace the '1.3.3' with '1.+'. But can break things when there is a new version.
+Maybe you need to change your repositories for gradle:
+
+	repositories {
+		mavenCentral()
+		jcenter()
+	}
 
 ## Usage ##
 

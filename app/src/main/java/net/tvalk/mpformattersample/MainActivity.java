@@ -3,6 +3,7 @@ package net.tvalk.mpformattersample;
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -19,11 +20,14 @@ public class MainActivity extends Activity {
 
         TextView label = (TextView)findViewById(R.id.testLabel);
 
-        String nickname = "$F80$i$S$oToffe$z$06FSmu$h[testing]rf$h $z$n$l[http://goo.gl/y4M9VK][App]";
+        String nickname = "$F80$i$S$oToffe$z$06FSmu$h[testing]rf$h $z$n$l[goo.gl/y4M9VK][App]";
 
         Spanned nn = new MPFormatter(nickname).parse().getSpannable();
 
         label.setText(nn);
+        label.setLinksClickable(true);
+        label.setFocusable(true);
+        label.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
 
