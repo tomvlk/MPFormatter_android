@@ -1,23 +1,134 @@
 apply plugin: 'com.android.library'
-apply plugin: 'android-library'
+apply plugin: 'maven'
 
-version = "1.0"
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+version = "1.3.4"
 group = "net.tvalk.mpformatter"
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 22
+    buildToolsVersion "22"
 
     defaultConfig {
         minSdkVersion 1
-        targetSdkVersion 14
-        versionCode 1
-        versionName "1.0"
+        targetSdkVersion 22
+        versionCode 8
+        versionName "1.3.4"
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.1.0'
+        classpath 'com.github.dcendents:android-maven-plugin:1.2'
+        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.1"
+    }
+}
+
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+
+def siteUrl = 'https://github.com/tomvlk/MPFormatter_android'
+def gitUrl = 'https://github.com/tomvlk/MPFormatter_android.git'
+
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging = 'aar'
+
+                // Add your description here
+                name = 'Maniaplanet Style Parser'
+                url = siteUrl
+
+                version = '1.3.4'
+
+                groupId = 'net.tvalk.mpformatter'
+
+                // Set your license
+                licenses {
+                    license {
+                        name = 'MIT'
+                        url = 'http://opensource.org/licenses/MIT'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'tomvlk'
+                        name = 'Tom Valk'
+                        email = 'info@lt-box.info'
+                    }
+                }
+
+                scm {
+                    connection = gitUrl
+                    developerConnection = gitUrl
+                    url = siteUrl
+
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+/*task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}*/
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
+    classpath += files(ext.androidJar)
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.key")
+
+    publish = true
+
+    configurations = ['archives']
+    pkg {
+        repo = "maven"
+        name = "mpformatter"
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ["MIT"]
+        publish = true
     }
 }

@@ -126,7 +126,7 @@ public class MPFormatter {
             char ch = input.charAt(i);
 
             // If dollar is found, and input is > current char (is not at end)
-            if(ch == '$' && input.length()  > i) {
+            if(ch == '$' && input.length() > (i+1)) {
                 char type = input.charAt(i+1);
 
                 // Ignore next char
@@ -142,14 +142,14 @@ public class MPFormatter {
                     case 'H':
                         // Parse link
                         // Check if url can be after the dollar and type char
-                        if(input.length() > i + 2){
+                        if(input.length() > (i + 2)){
                             char after = input.charAt(i+2);
 
                             // Link invisible url
                             if(after == '['){
                                 // Get start and end of link
                                 int urlStop = input.indexOf("]", i + 2);
-                                if(urlStop > -1 && input.length() > i + 3) {
+                                if(urlStop > -1 && input.length() > (i + 3)) {
                                     String url = input.substring(i + 3, urlStop);
 
                                     MPLink link = new MPLink(url, styledString.length());
