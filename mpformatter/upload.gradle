@@ -78,8 +78,8 @@ if (project.rootProject.file("local.properties").exists()) {
         key = properties.getProperty("bintray.key")
 
         configurations = ['archives']
-        dryRun = true
-        publish = false
+        dryRun = false
+        publish = true
 
         pkg {
             repo = "maven"
@@ -88,8 +88,8 @@ if (project.rootProject.file("local.properties").exists()) {
             vcsUrl = gitUrl
             licenses = ["MIT"]
 
-            dryRun = true
-            publish = false
+            dryRun = false
+            publish = true
         }
     }
 }
