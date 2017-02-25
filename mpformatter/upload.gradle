@@ -4,8 +4,8 @@ apply plugin: 'com.jfrog.bintray'
 def siteUrl = 'https://github.com/tomvlk/MPFormatter_android'
 def gitUrl = 'https://github.com/tomvlk/MPFormatter_android.git'
 
-def libGroup = "net.tvalk.mpformatter"
-def libVersion = "1.3.5"
+def libGroup = 'net.tvalk.mpformatter'
+def libVersion = '1.3.6-SNAPSHOT'
 
 group = libGroup
 version = libVersion
@@ -78,7 +78,8 @@ if (project.rootProject.file("local.properties").exists()) {
         key = properties.getProperty("bintray.key")
 
         configurations = ['archives']
-        dryRun = false
+        dryRun = true
+        publish = false
 
         pkg {
             repo = "maven"
@@ -86,7 +87,9 @@ if (project.rootProject.file("local.properties").exists()) {
             websiteUrl = siteUrl
             vcsUrl = gitUrl
             licenses = ["MIT"]
-            publish = true
+
+            dryRun = true
+            publish = false
         }
     }
 }

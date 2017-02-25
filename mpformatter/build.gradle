@@ -1,9 +1,5 @@
 apply plugin: 'com.android.library'
 
-def libVersion = "1.3.5"
-def libBuild = 8
-def libGroup = "net.tvalk.mpformatter"
-
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
@@ -12,8 +8,8 @@ android {
         minSdkVersion 9
         targetSdkVersion 23
 
-        versionCode libBuild
-        versionName libVersion
+        versionCode 1
+        versionName "1.0"
 
         consumerProguardFiles 'proguard-rules.pro'
     }
@@ -41,3 +37,5 @@ buildscript {
         classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.1"
     }
 }
+
+apply from: 'upload.gradle'
