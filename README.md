@@ -8,10 +8,10 @@ It will output a Spanned object that can be used in TextViews and more Android c
 You can use gradle to compile it, it's in the jCentral repository and in the Maven Central.
 
     dependencies {
-        compile 'net.tvalk.mpformatter:mpformatter:1.3.3'
+        compile 'net.tvalk.mpformatter:mpformatter:1.3.6'
     }
 
-If you want to stay updated, replace the '1.3.3' with '1.+'. But can break things when there is a new version.
+If you want to stay updated, replace the '1.3.6' with '1.+'. But can break things when there is a new version.
 Maybe you need to change your repositories for gradle:
 
 	repositories {
@@ -24,7 +24,7 @@ Maybe you need to change your repositories for gradle:
 To get the Spanned from a styled nickname for example, use:
 
     String nickname = "$F80$i$o$SToffe$z$06FSmurf $z$n$l[http://goo.gl/y4M9VK][App]$l";
-    Spanned styledNickname = new MPFormatter(nickname).parse().getSpanned();
+    Spanned styledNickname = new MPFormatter(nickname).parse().getSpannable();
 
 This will result in:
 ![Example result from above code](https://raw.githubusercontent.com/tomvlk/MPFormatter_swift/master/example.png "Example result")
@@ -34,7 +34,7 @@ You can also strip the colors, links or styles with the functions stripColors(),
 For example, to strip the links in this nickname:
 
     String nickname = "$F80$i$o$SToffe$z$06FSmurf $z$n$l[http://goo.gl/y4M9VK][App]$l";
-    Spanned styledNickname = new MPFormatter(nickname).parse().stripLinks().getSpanned();
+    Spanned styledNickname = new MPFormatter(nickname).parse().stripLinks().getSpannable();
 
 
 ## Licence ##
