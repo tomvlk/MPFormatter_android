@@ -1,8 +1,19 @@
 language: android
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.gradle
+
 android:
   components:
-    - platform-tools
     - tools
-    - extra
+    - platform-tools
+    - build-tools-23.0.3
+    - extra-android-m2repository
+    - android-23
 
-script: gradle clean build
+jdk:
+  - oraclejdk8
+
+script: ./gradlew clean check
