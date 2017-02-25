@@ -162,12 +162,12 @@ public class MPFormatter {
                                 }
                             }else{
                                 // Link is visible, maybe a closer
-                                if(this.links.size() > 0){
+                                if(this.links.size() > 0) {
                                     MPLink last = this.links.get(this.links.size()-1);
-                                    if(last.getEnd() == 0){
+                                    if(last.getEnd() == 0) {
                                         // Old link, that needs closing
                                         this.stopAllLinks(styledString.length());
-                                    }else{
+                                    } else {
                                         // It's a new link, add it
                                         this.links.add(new MPLink(null, styledString.length()));
                                     }

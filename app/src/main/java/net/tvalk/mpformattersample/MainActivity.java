@@ -20,9 +20,12 @@ public class MainActivity extends Activity {
 
         TextView label = (TextView)findViewById(R.id.testLabel);
 
-        String nickname = "$F80$i$S$oToffe$z$06FSmu$h[testing]rf$h $z$n$l[goo.gl/y4M9VK][App]";
+        StringBuilder nickname = new StringBuilder();
+        nickname.append("$F80$i$S$oToffe$z$06FSmu$h[testing]rf$h $z$n$l[goo.gl/y4M9VK][App]$l");
+        nickname.append("$z$l");
+        nickname.append("$l");
 
-        Spanned nn = new MPFormatter(nickname).parse().getSpannable();
+        Spanned nn = new MPFormatter(nickname.toString()).parse().getSpannable();
 
         label.setText(nn);
         label.setLinksClickable(true);

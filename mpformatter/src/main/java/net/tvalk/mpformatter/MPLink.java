@@ -5,7 +5,7 @@ import android.text.Spanned;
 import android.text.style.URLSpan;
 
 /**
- * Created by tom on 4-3-2015.
+ * MPLink Style Subclass.
  */
 public class MPLink extends MPStyles {
 
@@ -28,7 +28,7 @@ public class MPLink extends MPStyles {
     }
 
     public void setUrl(String newUrl) {
-        if(!newUrl.startsWith("http://") && !newUrl.startsWith("https://")) {
+        if (newUrl != null && !newUrl.startsWith("http://") && !newUrl.startsWith("https://")) {
             newUrl = "http://" + newUrl;
         }
         this.url = newUrl;
